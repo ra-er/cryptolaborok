@@ -29,7 +29,6 @@ def get_action():
     print("* Action *")
     return _get_selection("(E)ncrypt or (D)ecrypt? ", "ED")
 
-
 def get_filename():
     filename = input("Filename? ")
     while not filename:
