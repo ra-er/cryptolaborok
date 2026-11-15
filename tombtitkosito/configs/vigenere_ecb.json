@@ -1,0 +1,7 @@
+{
+  "blocksize": 16,
+  "cipher": "VIGENERE-BIN",
+  "key": "bXktZWR1Y2F0aW9uYWwtdmlnLWtleQ==",
+  "mode": "ECB",
+  "padding": "SF"
+}

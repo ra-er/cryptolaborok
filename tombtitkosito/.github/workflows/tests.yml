@@ -1,0 +1,20 @@
+name: Build and test block cipher
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Build / syntax-check package
+        run: python -m compileall -q blockcipher_lab
+      - name: Unit and 1 MiB integration tests
+        run: python -m pytest -q

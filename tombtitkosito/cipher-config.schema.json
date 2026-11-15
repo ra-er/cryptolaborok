@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/cipher-config.schema.json",
+  "title": "CipherConfig",
+  "description": "Configuration for a symmetric cipher operation.",
+  "type": "object",
+  "properties": {
+    "blocksize": {
+      "type": "integer",
+      "description": "Block size in bytes.",
+      "minimum": 1,
+      "maximum": 64
+    },
+    "cipher": {
+      "type": "string",
+      "description": "Name of the cipher algorithm.",
+      "enum": ["AES-128", "AES-192", "AES-256", "DES", "3DES", "VIGENERE-BIN", "CUSTOM(student_id)"]
+    },
+    "key": {
+      "type": "string",
+      "description": "Base64-encoded key material.",
+      "contentEncoding": "base64"
+    },
+    "mode": {
+      "type": "string",
+      "description": "Cipher mode of operation.",
+      "enum": ["ECB", "CBC", "CFB", "OFB", "CTR"]
+    },
+    "iv": {
+      "type": "string",
+      "description": "Base64-encoded initialization vector. Required for CBC, CFB, OFB, and CTR; omitted for ECB.",
+      "contentEncoding": "base64"
+    },
+    "padding": {
+      "type": "string",
+      "description": "Padding scheme.",
+      "enum": ["ZERO", "DES", "SF"]
+    }
+  },
+  "required": ["blocksize", "cipher", "key", "mode", "padding"],
+  "additionalProperties": false
+}
+
